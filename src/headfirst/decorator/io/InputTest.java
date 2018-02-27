@@ -10,7 +10,7 @@ public class InputTest {
 
       try {
         InputStream in =
-          new LowerCaseInputStream(new BufferedInputStream(new FileInputStream(args[0])));
+          new LowerCaseInputStream(new BufferedInputStream(new FileInputStream("Hi, I'm Nathan")));
 
         while ((c = in.read()) >= 0) {
           System.out.print((char) c);
