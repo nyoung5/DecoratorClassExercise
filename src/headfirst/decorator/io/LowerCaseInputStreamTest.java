@@ -51,7 +51,8 @@ class LowerCaseInputStreamTest {
 			eachChar = lowerIs.read();
 		}
 		
-		assertTrue(testString.equals(expected));
+		assertTrue(testString.equals(expected)); 
+		//assertTrue(os.toString().equals(expected)); 
 	//	os.write(eachChar); //writes the end of string because negative 1
 		
 		
