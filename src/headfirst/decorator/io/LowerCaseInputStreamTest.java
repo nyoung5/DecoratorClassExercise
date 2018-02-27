@@ -42,14 +42,17 @@ class LowerCaseInputStreamTest {
 	@Test
 	void testRead() throws IOException {  //use string for this 
 		
-		InputStream LowerIs = new LowerCaseInputStream(is);
-		
-		int eachChar = LowerIs.read(); //if end of string, true
+		InputStream lowerIs = new LowerCaseInputStream(is);
+		String testString = "";
+		int eachChar = lowerIs.read(); //if end of string, true
 		while(eachChar != -1) {
-			os.write(eachChar); //build string here to compare with expected
+			testString = testString + (char) eachChar;
+		//	os.write(eachChar); //build string here to compare with expected
+			eachChar = lowerIs.read();
 		}
+		
+		assertTrue(testString.equals(expected));
 	//	os.write(eachChar); //writes the end of string because negative 1
-		AssertTrue(os.)
 		
 		
 		//redefine stdout to an output byte array setOut(ByteArrayOutputStream
@@ -58,8 +61,16 @@ class LowerCaseInputStreamTest {
 	}
 
 	@Test
-	void testReadByteArrayIntInt() { //use os for this one.
-		fail("Not yet implemented");
+	void testReadByteArrayIntInt() throws IOException { //use os for this one.
+		InputStream lowerIs = new LowerCaseInputStream(is);
+		
+		byte[] changingBytes = allUpperCase.getBytes(); //sentence in byte form
+		lowerIs.read(changingBytes,0,changingBytes.length); //change the byte
+		String changedString = new String(changingBytes); //convert to string
+		assertTrue(changedString.equals(expected)); //compare against expected val
+		
+		//redefine stdout to an output byte array setOut(ByteArrayOutputStream
+		//tostring it or one other 
 	}
 
 	
